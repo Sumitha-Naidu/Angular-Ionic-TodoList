@@ -1,0 +1,13 @@
+<ion-item *ngIf="todo" [detail]="false">
+    <div slot="start" [class]=" !todo.completed?'dot dot-undread' : 'dot'">
+    </div>
+    <ion-label class="ion-text-wrap">
+        <h2 [class]="!todo.completed ? 'uncompleted' : 'completed'">
+            {{todo.title}}
+        </h2>
+        <h3 [class]="!todo.completed ? 'Active' : 'Completed'"></h3>
+    </ion-label>
+    <ion-toggle [(ngModel)] = "todo.completed" disabled="false" (click)="update(todo)">
+    </ion-toggle>
+    <ion-button color="danger" (click)="delete(todo)">X</ion-button>
+</ion-item>
